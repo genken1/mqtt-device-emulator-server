@@ -1,28 +1,28 @@
 import mqtt from 'mqtt'
 import {
-  executeProcessListener,
-  getRandomArbitrary
-} from '../utils/index.js';
+  getRandomArbitrary,
+  executeProcessListener
+} from '../utils/helpers.mjs';
 import {
   DEVICE_ENGINE_SPEED_TOPIC,
   DEVICE_FUEL_TOPIC,
   DEVICE_COORD_TOPIC,
   DEVICE_GYROSCOPE_TOPIC
-} from '../utils/constants.js'
+} from '../utils/constants.mjs'
 
-const client = mqtt.connect('mqtt://localhost:1883', {
+const client = mqtt.connect(process.env.MOSQUITTO_MQTT_URL, {
   keepalive: 10,
   clean: true,
   reconnectPeriod: 2000,
   connectTimeout: 2000,
-  username: 'mosquitto',
-  password: 'mosquitto',
+  username: process.env.MOSQUITTO_USERNAME,
+  password: process.env.MOSQUITTO_PASSWORD,
   rejectUnauthorized: false
 })
 
-
 client.on('connect', () => {
   client.publish('/devices/connected', 'true')
+  console.log(`Connected to MQTT Broker!`)
 
   /**
    * Генерация значений

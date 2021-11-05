@@ -1,16 +1,14 @@
 {
   "name": "iot-project",
   "version": "1.0.0",
-  "description": "IoT project.",
+  "description": "IoT device emulator.",
   "author": "LookFor",
   "license": "ISC",
   "type": "module",
   "scripts": {
-    "start-emulator": "node device-emulator/index.js",
-    "start-server": "node server/index.js"
+    "start": "node index.js"
   },
   "dependencies": {
-    "mongoose": "^6.0.12",
     "mqtt": "^2.18.9"
   }
 }

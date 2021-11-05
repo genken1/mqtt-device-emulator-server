@@ -15,7 +15,7 @@ services:
       - PORT=${MOSQUITTO_PORT}
     image: eclipse-mosquitto:${MOSQUITTO_VERSION:-latest}
     container_name: eclipse-mosquitto
-    restart: always
+    restart: unless-stopped
     volumes:
       - ./mqtt-broker/data:/mosquitto/data
       - ./mqtt-broker/log:/mosquitto/log
@@ -31,4 +31,4 @@ services:
     env_file:
       - .env
     volumes:
-      - ./server/data:/docker-entrypoint-initdb.d
+      - ./server/data:/data/db

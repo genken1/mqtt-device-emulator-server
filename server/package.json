@@ -1,0 +1,15 @@
+{
+  "name": "iot-project",
+  "version": "1.0.0",
+  "description": "IoT server for mqtt broker.",
+  "author": "LookFor",
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "mongoose": "^6.0.12",
+    "mqtt": "^2.18.9"
+  }
+}

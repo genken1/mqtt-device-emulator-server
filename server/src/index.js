@@ -1,6 +1,6 @@
 import mqtt from 'mqtt'
 import mongoose from 'mongoose'
-import {executeProcessListener} from '../utils/index.js';
+import {executeProcessListener} from '../../utils/helpers.mjs';
 import {
   EngineSpeed,
   Coord,
@@ -12,7 +12,7 @@ import {
   DEVICE_FUEL_TOPIC,
   DEVICE_COORD_TOPIC,
   DEVICE_GYROSCOPE_TOPIC
-} from '../utils/constants.js'
+} from '../../utils/constants.mjs'
 
 async function main() {
   await mongoose.connect('mongodb://localhost:27017/test')
@@ -39,7 +39,7 @@ async function saveModelData(Model, message) {
 main().catch(err => console.log(err))
 
 client.on('connect', () => {
-  console.log(`Connected to MQTT Broker`)
+  console.log(`Connected to MQTT Broker!`)
 
   client.subscribe(DEVICE_ENGINE_SPEED_TOPIC)
   client.subscribe(DEVICE_FUEL_TOPIC)

@@ -1,6 +1,8 @@
-node_modules
 .idea
 .env
+
+emulator/node_modules
+server/node_modules
 
 server/data
 mqtt-broker/data
