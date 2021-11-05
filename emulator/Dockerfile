@@ -4,7 +4,7 @@ RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
 WORKDIR /home/node/app
 
-COPY ./device-emulator/package*.json ./
+COPY ./emulator/package*.json ./
 
 COPY ./utils ../
 
@@ -14,4 +14,4 @@ RUN npm ci --only=production
 
 COPY --chown=node:node . .
 
-CMD ["node", "./device-emulator/index.js"]
+CMD ["node", "./emulator/src/index.js"]
