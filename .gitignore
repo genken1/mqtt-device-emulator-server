@@ -7,3 +7,4 @@ server/node_modules
 server/data
 mqtt-broker/data
 mqtt-broker/log
+*.pem
